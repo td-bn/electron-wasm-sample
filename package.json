@@ -1,0 +1,12 @@
+{
+  "name": "ln-wallet",
+  "version": "1.0.0",
+  "main": "main.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^23.0.0"
+  },
+  "scripts": {
+      "start": "electron ."
+  }
+}
