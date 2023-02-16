@@ -13,6 +13,7 @@ let versions: Versions = {
 let exposed: Exposed = {
   versions,
   ping: () => ipcRenderer.invoke('ping'),
+  greet: (s: string) => ipcRenderer.invoke('greet', s)
 }
 
 contextBridge.exposeInMainWorld('exposed', exposed);

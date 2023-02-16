@@ -1,6 +1,6 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 // TODO: Why doesn't this work?
-// import { greet } from '../client-wasm/pkg/client_wasm'
+import { greet } from '../client-wasm/pkg/client_wasm'
 import * as path from 'path';
 
 const createWindow = () => {
@@ -13,6 +13,9 @@ const createWindow = () => {
   });
 
   ipcMain.handle('ping', () => 'pong');
+  ipcMain.handle('greet', (_e, s: string) => {
+    return greet(s);
+  });
   win.loadFile('../index.html');
 };
 
