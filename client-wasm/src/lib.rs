@@ -1,4 +1,5 @@
 use wasm_bindgen::prelude::*;
+pub mod bdk;
 
 #[wasm_bindgen]
 extern {
