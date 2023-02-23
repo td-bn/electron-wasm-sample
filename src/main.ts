@@ -1,6 +1,6 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 // TODO: Why doesn't this work?
-import { greet } from '../client-wasm/pkg/client_wasm'
+import { greet, Wollet } from '../client-wasm/pkg/client_wasm'
 import * as path from 'path';
 
 const createWindow = () => {
@@ -16,11 +16,16 @@ const createWindow = () => {
   ipcMain.handle('greet', (_e, s: string) => {
     return greet(s);
   });
-  win.loadFile('../index.html');
+  console.log(__dirname);
+  win.loadURL('http://localhost:3002') // Locally running CRA instance
 };
 
 app.whenReady().then(() => {
   createWindow();
+
+  const m = 'faith fossil mushroom quiz bunker can palm ghost obey advance dismiss toddler';
+  let wallet = new Wollet(m);
+  console.log(wallet);
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
